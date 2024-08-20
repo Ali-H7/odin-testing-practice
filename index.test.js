@@ -1,6 +1,7 @@
 import { capitalize } from '.';
 import { reverseString } from '.';
 import { calc } from '.';
+import { analyze } from '.';
 
 test('Capitalize the first letter', () => {
   expect(capitalize('dragon')).toBe('Dragon');
@@ -21,6 +22,23 @@ test('Subtracting two numbers', () => {
 test('Multiplying two numbers', () => {
   expect(calc.multiply(2, 2)).toEqual(4);
 });
+
 test('Dividing two numbers', () => {
   expect(calc.divide(6, 2)).toEqual(3);
+});
+
+test('Analyze average', () => {
+  expect(analyze.average).toEqual(4);
+});
+
+test('Analyze min', () => {
+  expect(analyze.min).toEqual(1);
+});
+
+test('Analyze max', () => {
+  expect(analyze.max).toEqual(8);
+});
+
+test('Analyze length', () => {
+  expect(analyze.length).toEqual(6);
 });

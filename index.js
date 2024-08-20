@@ -16,3 +16,14 @@ function calculator() {
 }
 
 export const calc = calculator();
+
+function analyzeArray(array) {
+  const length = array.length;
+  const max = Math.max(...array);
+  const min = Math.min(...array);
+  const average = array.reduce((a, b) => a + b, 0) / length;
+
+  return { max, min, average, length };
+}
+
+export const analyze = analyzeArray([1, 8, 3, 4, 2, 6]);

@@ -2,6 +2,7 @@ import { capitalize } from '.';
 import { reverseString } from '.';
 import { calc } from '.';
 import { analyze } from '.';
+import { caesarCipher } from '.';
 
 test('Capitalize the first letter', () => {
   expect(capitalize('dragon')).toBe('Dragon');
@@ -41,4 +42,16 @@ test('Analyze max', () => {
 
 test('Analyze length', () => {
   expect(analyze.length).toEqual(6);
+});
+
+test('Cipher text wrapping', () => {
+  expect(caesarCipher('xyz', 3)).toBe('abc');
+});
+
+test('Cipher case preservation', () => {
+  expect(caesarCipher('HeLLo', 3)).toBe('KhOOr');
+});
+
+test('Cipher text punctutaions and spaces', () => {
+  expect(caesarCipher('Hello, World!', 3)).toBe('Khoor, Zruog!');
 });

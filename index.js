@@ -27,3 +27,31 @@ function analyzeArray(array) {
 }
 
 export const analyze = analyzeArray([1, 8, 3, 4, 2, 6]);
+
+export function caesarCipher(string, key) {
+  const lowercase = Array.from({ length: 26 }, (_, i) =>
+    String.fromCharCode(97 + i)
+  );
+
+  const uppercase = Array.from({ length: 26 }, (_, i) =>
+    String.fromCharCode(65 + i)
+  );
+
+  const stringArray = string.split('');
+
+  stringArray.forEach((char, index) => {
+    const findIndex1 = lowercase.indexOf(char);
+    const findIndex2 = uppercase.indexOf(char);
+
+    if (findIndex1 !== -1) {
+      const charIndex = (findIndex1 + key) % 26;
+      stringArray[index] = lowercase[charIndex];
+    } else if (findIndex2 !== -1) {
+      const charIndex = (findIndex2 + key) % 26;
+      stringArray[index] = uppercase[charIndex];
+    }
+  });
+
+  const encryptedString = stringArray.join('');
+  return encryptedString;
+}
